@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# Everything Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+백엔드 Spring Boot 애플리케이션과 연동되는 React TypeScript 프론트엔드입니다.
 
-## Available Scripts
+## 기능
 
-In the project directory, you can run:
+- JWT 기반 인증 시스템
+- 로그인/회원가입
+- 보호된 라우트
+- 사용자 대시보드
+- OAuth2 지원 (향후 구현 예정)
 
-### `npm start`
+## 설치 및 실행
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+# 의존성 설치
+npm install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 개발 서버 실행
+npm start
 
-### `npm test`
+# 빌드
+npm run build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 테스트 실행
+npm test
+```
 
-### `npm run build`
+## API 연동
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+백엔드 서버가 `http://localhost:8080`에서 실행되어야 합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 주요 API 엔드포인트
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `POST /api/auth/login` - 로그인
+- `POST /api/auth/register` - 회원가입
+- `GET /api/user/me` - 현재 사용자 정보
+- `GET /api/user/profile` - 사용자 프로필
 
-### `npm run eject`
+## 프로젝트 구조
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+src/
+├── components/          # React 컴포넌트
+│   ├── Login.tsx
+│   ├── Register.tsx
+│   ├── Dashboard.tsx
+│   └── ProtectedRoute.tsx
+├── context/            # React Context
+│   └── AuthContext.tsx
+├── services/           # API 서비스
+│   ├── api.ts
+│   └── authService.ts
+├── types/              # TypeScript 타입 정의
+│   └── auth.ts
+└── App.tsx
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 환경 설정
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+백엔드 API URL을 변경하려면 `src/services/api.ts`에서 `API_BASE_URL`을 수정하세요.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 사용법
 
-## Learn More
+1. 백엔드 서버 실행 (`http://localhost:8080`)
+2. 프론트엔드 서버 실행 (`npm start`)
+3. 브라우저에서 `http://localhost:3000` 접속
+4. 회원가입 또는 로그인 후 대시보드 이용
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).# everything-frontend
